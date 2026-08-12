@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "home": {
+      "title": "DevNest — Digital Systems for Ambitious Dubai Businesses",
+      "description": "Premium websites, business systems and automation for SMEs across Dubai & UAE. More leads, better customer experiences, smarter operations."
+    },
+    "services": {
+      "title": "Services — Web, E-commerce, CRM & Automation | DevNest",
+      "description": "High-performance websites, custom web apps, CRM, booking systems, WhatsApp and AI automation for UAE businesses."
+    },
+    "industries": {
+      "title": "Industry Solutions for Dubai & UAE Businesses | DevNest",
+      "description": "Tailored digital systems for real estate, beauty, automotive, restaurants, clinics, construction and more."
+    },
+    "pricing": {
+      "title": "Pricing in AED — Websites & Business Systems | DevNest",
+      "description": "Transparent starting prices in AED for websites, growth systems and custom software, plus monthly care plans."
+    },
+    "portfolio": {
+      "title": "Portfolio & Concept Projects | DevNest",
+      "description": "A look at the kinds of digital systems we build for UAE businesses. Concept projects shown until client work is published."
+    },
+    "about": {
+      "title": "About — A Remote Technology Team Serving UAE | DevNest",
+      "description": "A remote technology team based in Ecuador, building premium digital systems for businesses across Dubai and the UAE."
+    },
+    "contact": {
+      "title": "Contact & Free Consultation | DevNest",
+      "description": "Book a free consultation or request a quote. WhatsApp, email and booking for businesses across Dubai & UAE."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions | DevNest",
+      "description": "Answers about working with a remote UAE-focused digital team: timelines, WhatsApp, maintenance, custom software and Arabic support."
+    },
+    "legal": {
+      "privacyTitle": "Privacy Policy | DevNest",
+      "termsTitle": "Terms of Service | DevNest",
+      "cookiesTitle": "Cookie Policy | DevNest"
+    }
+  },
+  "nav": {
+    "services": "Services",
+    "industries": "Industries",
+    "pricing": "Pricing",
+    "portfolio": "Work",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Serving businesses across Dubai & UAE",
+    "title": "Digital systems built for ambitious businesses in Dubai.",
+    "subtitle": "Websites, business systems and automation designed to help UAE businesses attract more customers, operate smarter and grow faster.",
+    "value": "Dubai-level digital solutions without Dubai agency overhead.",
+    "stat1": "Conversion-focused",
+    "stat2": "Custom-built",
+    "stat3": "Dedicated support"
+  },
+  "trust": {
+    "title": "Built for businesses that want more than just a website.",
+    "subtitle": "We design digital systems around one goal: measurable business growth."
+  },
+  "services": {
+    "eyebrow": "What we build",
+    "title": "Solutions that do more than look good",
+    "subtitle": "Every service is engineered around a business outcome — more leads, more bookings, less manual work.",
+    "cta": "Explore all services"
+  },
+  "industries": {
+    "eyebrow": "Industry solutions",
+    "title": "Systems shaped to your industry",
+    "subtitle": "Find the solution that fits how your business actually works.",
+    "cta": "See all industries",
+    "solutionsLabel": "What's included"
+  },
+  "process": {
+    "eyebrow": "How we work",
+    "title": "A clear path from idea to launch",
+    "subtitle": "A proven five-step process with no surprises and full visibility.",
+    "cta": "Start Your Project"
+  },
+  "pricing": {
+    "eyebrow": "Packages",
+    "title": "Transparent starting prices, in AED",
+    "subtitle": "Every project is scoped to your needs — these are starting points, not fixed quotes.",
+    "from": "Starting from",
+    "recurringEyebrow": "Ongoing partnership",
+    "recurringTitle": "Monthly care & growth plans",
+    "recurringSubtitle": "Keep your product fast, secure and improving every month.",
+    "perMonth": "/month",
+    "note": "Prices are starting points and are configured per project. Final scope is agreed during your free consultation.",
+    "popular": "Most popular"
+  },
+  "roi": {
+    "eyebrow": "ROI calculator",
+    "title": "How much could a better website be worth to your business?",
+    "subtitle": "Adjust the numbers to estimate the growth a higher-converting website could unlock.",
+    "visitors": "Monthly website visitors",
+    "conversion": "Current conversion rate (%)",
+    "value": "Average customer value (AED)",
+    "targetConversion": "Improved conversion rate (%)",
+    "currentLeads": "Current leads / month",
+    "potentialLeads": "Potential leads / month",
+    "additionalCustomers": "Additional customers / month",
+    "additionalRevenue": "Potential additional revenue / month",
+    "disclaimer": "This is an estimate for illustration only and not a guarantee of results.",
+    "cta": "Get my free consultation"
+  },
+  "portfolio": {
+    "eyebrow": "Selected work",
+    "title": "The kind of systems we build",
+    "subtitle": "Concept projects that show our approach. Real client case studies will be published as they go live.",
+    "conceptNote": "Concept Project — illustrative work, not a real client.",
+    "filters": {
+      "all": "All",
+      "real-estate": "Real Estate",
+      "beauty": "Beauty",
+      "automotive": "Automotive",
+      "restaurants": "Restaurants",
+      "ecommerce": "E-commerce",
+      "saas": "SaaS",
+      "custom": "Custom Systems"
+    }
+  },
+  "audit": {
+    "eyebrow": "Free website audit",
+    "title": "Not sure what's wrong with your website?",
+    "subtitle": "Send us your URL and we'll review performance, SEO and conversion, then share where you're losing customers.",
+    "website": "Website URL",
+    "name": "Your name",
+    "company": "Company",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "submit": "Get a Free Website Audit",
+    "success": "Thanks. We'll review your website and get back to you."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Questions, answered",
+    "subtitle": "Everything you need to know before we talk."
+  },
+  "finalCta": {
+    "title": "Ready to turn your website into a growth engine?",
+    "subtitle": "Book a free consultation and get a clear, no-pressure plan for your business.",
+    "primary": "Book a Free Consultation",
+    "secondary": "WhatsApp Us"
+  },
+  "about": {
+    "eyebrow": "About DevNest",
+    "title": "A technology team obsessed with business outcomes",
+    "lead": "DevNest is a remote technology team based in Ecuador, serving businesses internationally — with a focus on Dubai and the UAE.",
+    "body": "We combine software engineering, modern technology and conversion-focused design to build digital systems that generate leads and streamline operations. We work as a long-term partner, not a one-off vendor.",
+    "values": {
+      "engineering": "Software engineering",
+      "modern": "Modern technologies",
+      "custom": "Custom solutions",
+      "partnership": "Long-term partnerships"
+    },
+    "disclaimerTitle": "Honest by default",
+    "disclaimer": "We don't fabricate clients, testimonials or results. Demo work is clearly labelled as a concept project until real client work is published."
+  },
+  "contact": {
+    "eyebrow": "Get in touch",
+    "title": "Let's build something that grows your business",
+    "subtitle": "Tell us about your project and we'll get back to you shortly.",
+    "form": {
+      "name": "Name",
+      "company": "Company",
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "industry": "Business type",
+      "website": "Current website",
+      "service": "What do you need?",
+      "budget": "Approximate budget",
+      "message": "Message",
+      "servicePlaceholder": "Select a service",
+      "industryPlaceholder": "Select your industry",
+      "budgetPlaceholder": "Select a range",
+      "submit": "Book a Free Consultation",
+      "sending": "Sending…",
+      "success": "Thank you. We've received your request and will be in touch soon.",
+      "error": "Something went wrong. Please try again or reach us on WhatsApp.",
+      "optional": "optional"
+    },
+    "channels": {
+      "whatsapp": "Chat on WhatsApp",
+      "email": "Email us",
+      "book": "Book a consultation",
+      "hours": "Business hours"
+    }
+  },
+  "footer": {
+    "tagline": "Digital systems built for ambitious businesses in Dubai & UAE.",
+    "based": "Remote technology team based in Ecuador, serving UAE businesses.",
+    "columns": {
+      "company": "Company",
+      "solutions": "Solutions",
+      "legal": "Legal"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "rights": "All rights reserved.",
+    "disclaimer": "DevNest is a working brand name. Legal entity details are finalised before production."
+  },
+  "common": {
+    "backHome": "Back to home",
+    "learnMore": "Learn more",
+    "getStarted": "Get Started"
+  }
+}
