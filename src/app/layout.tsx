@@ -22,9 +22,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || `https://${site.brand.domain}`),
-  verification: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION
-    ? { google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION }
-    : undefined,
+  verification: {
+    google: 'hyLciLL6OpBKGtgGcSXS-211NtuvyfT2E27Vg5p-qH0',
+  },
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

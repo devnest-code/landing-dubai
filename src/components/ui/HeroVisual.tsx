@@ -107,8 +107,7 @@ export function HeroVisual() {
         style={{
           position: 'absolute',
           left: 0,
-          top: '52%',
-          transform: 'translateY(-50%)',
+          top: '3%',
           zIndex: 3,
           borderRadius: 12,
           padding: '10px 12px',
