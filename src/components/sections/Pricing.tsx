@@ -1,11 +1,12 @@
-import { useTranslations } from 'next-intl'
-import { packages } from '@/config/content'
+import { useLocale, useTranslations } from 'next-intl'
+import { getLocalizedContent } from '@/config/localized-content'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { PricingCard } from '@/components/cards/PricingCard'
 import { Reveal } from '@/components/ui/Reveal'
 
 export default function Pricing() {
   const t = useTranslations('pricing')
+  const { packages } = getLocalizedContent(useLocale())
   return (
     <section className="section" id="pricing">
       <div className="container-x">

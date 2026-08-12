@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { siteUrl } from '@/config/site'
+import { localizedAlternates } from '@/config/site'
 import { PageHeader } from '@/components/ui/PageHeader'
 import Pricing from '@/components/sections/Pricing'
 import RecurringPlans from '@/components/sections/RecurringPlans'
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
-    alternates: { canonical: `${siteUrl()}/${locale}/pricing` },
+    alternates: localizedAlternates('/pricing', locale),
   }
 }
 
@@ -31,8 +31,8 @@ export default async function PricingPage({ params }: Props) {
     <>
       <PageHeader
         eyebrow={t('eyebrow')}
-        title="Simple, transparent pricing in AED"
-        subtitle="Clear starting prices and monthly plans. Your final scope is agreed together during a free consultation — no pressure, no hidden fees."
+        title={t('pageTitle')}
+        subtitle={t('pageSubtitle')}
       />
       <Pricing />
       <RecurringPlans />

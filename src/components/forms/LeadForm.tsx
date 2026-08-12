@@ -3,22 +3,22 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { leadSchema, type LeadFormData } from '@/lib/validations'
-import { services, industries } from '@/config/content'
+import { getLocalizedContent } from '@/config/localized-content'
 import { track, readUtm } from '@/lib/analytics'
 import { Icon } from '@/components/ui/Icon'
 
-const budgets = [
-  { value: 'under-5k', label: 'Under AED 5,000' },
-  { value: '5-15k', label: 'AED 5,000 – 15,000' },
-  { value: '15-50k', label: 'AED 15,000 – 50,000' },
-  { value: '50k-plus', label: 'AED 50,000+' },
-  { value: 'not-sure', label: 'Not sure yet' },
-]
-
 export function LeadForm({ source = 'contact' }: { source?: string }) {
   const t = useTranslations('contact.form')
+  const { services, industries } = getLocalizedContent(useLocale())
+  const budgets = [
+    { value: 'under-5k', label: t('budgets.under5k') },
+    { value: '5-15k', label: t('budgets.5to15k') },
+    { value: '15-50k', label: t('budgets.15to50k') },
+    { value: '50k-plus', label: t('budgets.over50k') },
+    { value: 'not-sure', label: t('budgets.unsure') },
+  ]
   const [done, setDone] = useState(false)
   const [serverError, setServerError] = useState(false)
 
@@ -83,10 +83,10 @@ export function LeadForm({ source = 'contact' }: { source?: string }) {
 
       <div style={{ display: 'grid', gap: 16, gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
         <Field label={t('name')} error={errors.name?.message}>
-          <input className={`field ${errors.name ? 'field-error' : ''}`} placeholder="Jane Doe" {...register('name')} />
+          <input className={`field ${errors.name ? 'field-error' : ''}`} placeholder={t('namePlaceholder')} {...register('name')} />
         </Field>
         <Field label={t('company')} optional optionalLabel={t('optional')}>
-          <input className="field" placeholder="Acme LLC" {...register('company')} />
+          <input className="field" placeholder={t('companyPlaceholder')} {...register('company')} />
         </Field>
         <Field label={t('email')} error={errors.email?.message}>
           <input className={`field ${errors.email ? 'field-error' : ''}`} type="email" placeholder="you@company.com" {...register('email')} />
@@ -104,7 +104,7 @@ export function LeadForm({ source = 'contact' }: { source?: string }) {
                 {i.title}
               </option>
             ))}
-            <option value="Other">Other</option>
+            <option value="Other">{t('other')}</option>
           </select>
         </Field>
         <Field label={t('service')} optional optionalLabel={t('optional')}>
@@ -140,7 +140,7 @@ export function LeadForm({ source = 'contact' }: { source?: string }) {
         <Field label={t('message')} error={errors.message?.message}>
           <textarea
             className={`field ${errors.message ? 'field-error' : ''}`}
-            placeholder="Tell us what you're looking to build or improve…"
+            placeholder={t('messagePlaceholder')}
             {...register('message')}
           />
         </Field>

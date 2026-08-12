@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
-import { portfolio } from '@/config/content'
+import { useLocale, useTranslations } from 'next-intl'
+import { getLocalizedContent } from '@/config/localized-content'
 import type { PortfolioCategory } from '@/types'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { PortfolioCard } from '@/components/cards/PortfolioCard'
@@ -21,6 +21,7 @@ const filters: (PortfolioCategory | 'all')[] = [
 
 export default function Portfolio({ showFilters = true, limit }: { showFilters?: boolean; limit?: number }) {
   const t = useTranslations('portfolio')
+  const { portfolio } = getLocalizedContent(useLocale())
   const [active, setActive] = useState<PortfolioCategory | 'all'>('all')
 
   let list = active === 'all' ? portfolio : portfolio.filter((p) => p.category === active)

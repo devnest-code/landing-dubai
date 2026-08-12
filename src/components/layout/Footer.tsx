@@ -2,13 +2,12 @@ import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { site } from '@/config/site'
 import { Logo } from '@/components/ui/Logo'
-import { Icon } from '@/components/ui/Icon'
 
 const companyLinks = [
-  { href: '/about', label: 'About' },
-  { href: '/portfolio', label: 'Work' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/about', key: 'about' },
+  { href: '/portfolio', key: 'work' },
+  { href: '/faq', key: 'faq' },
+  { href: '/contact', key: 'contact' },
 ] as const
 
 const solutionLinks = [
@@ -22,10 +21,10 @@ export default function Footer() {
   const tn = useTranslations('nav')
 
   const socials = [
-    { key: 'instagram', href: site.social.instagram, icon: 'sparkles' },
-    { key: 'linkedin', href: site.social.linkedin, icon: 'users' },
-    { key: 'x', href: site.social.x, icon: 'bolt' },
-  ].filter((s) => s.href)
+    { label: 'Facebook', short: 'fb', href: site.social.facebook },
+    { label: 'GitHub', short: 'gh', href: site.social.github },
+    { label: 'Instagram', short: 'ig', href: site.social.instagram },
+  ]
 
   return (
     <footer style={{ borderTop: '1px solid var(--bd)', marginTop: 40 }}>
@@ -45,15 +44,17 @@ export default function Footer() {
               <div style={{ display: 'flex', gap: 10, marginTop: 18 }}>
                 {socials.map((s) => (
                   <a
-                    key={s.key}
+                    key={s.label}
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={s.key}
+                    aria-label={s.label}
                     className="chip"
                     style={{ padding: 9, borderRadius: 10 }}
                   >
-                    <Icon name={s.icon} size={18} />
+                    <span aria-hidden style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase' }}>
+                      {s.short}
+                    </span>
                   </a>
                 ))}
               </div>
@@ -68,7 +69,7 @@ export default function Footer() {
               {companyLinks.map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} style={{ color: 'var(--wm)', fontSize: 15 }} className="foot-link">
-                    {l.label}
+                    {t(`companyLinks.${l.key}`)}
                   </Link>
                 </li>
               ))}

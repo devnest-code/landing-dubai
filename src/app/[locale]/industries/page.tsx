@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { siteUrl } from '@/config/site'
+import { localizedAlternates } from '@/config/site'
 import { PageHeader } from '@/components/ui/PageHeader'
 import Industries from '@/components/sections/Industries'
 import FinalCTA from '@/components/sections/FinalCTA'
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
-    alternates: { canonical: `${siteUrl()}/${locale}/industries` },
+    alternates: localizedAlternates('/industries', locale),
   }
 }
 
@@ -28,8 +28,8 @@ export default async function IndustriesPage({ params }: Props) {
     <>
       <PageHeader
         eyebrow={t('eyebrow')}
-        title="Built around your industry"
-        subtitle="Every business is different. We tailor the same premium engineering to the way your industry actually works."
+        title={t('pageTitle')}
+        subtitle={t('pageSubtitle')}
       />
       <Industries />
       <FinalCTA />

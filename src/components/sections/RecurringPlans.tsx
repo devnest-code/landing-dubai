@@ -1,6 +1,6 @@
-import { useTranslations } from 'next-intl'
-import { recurringPlans } from '@/config/content'
-import { formatPrice, site } from '@/config/site'
+import { useLocale, useTranslations } from 'next-intl'
+import { getLocalizedContent } from '@/config/localized-content'
+import { formatPrice } from '@/config/site'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { CTAButton } from '@/components/ui/CTAButton'
 import { Icon } from '@/components/ui/Icon'
@@ -8,6 +8,7 @@ import { Reveal } from '@/components/ui/Reveal'
 
 export default function RecurringPlans() {
   const t = useTranslations('pricing')
+  const { recurringPlans } = getLocalizedContent(useLocale())
   return (
     <section className="section" style={{ paddingTop: 0 }}>
       <div className="container-x">
@@ -54,7 +55,7 @@ export default function RecurringPlans() {
 
                 <div style={{ marginTop: 'auto' }}>
                   <CTAButton href="/contact" variant={plan.featured ? 'primary' : 'ghost'} event={`plan-${plan.slug}`} fullWidth>
-                    {site.cta.start}
+                    {t('cta')}
                   </CTAButton>
                 </div>
               </article>

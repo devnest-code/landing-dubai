@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { siteUrl } from '@/config/site'
+import { localizedAlternates } from '@/config/site'
 import Contact from '@/components/sections/Contact'
 
 interface Props {
@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
-    alternates: { canonical: `${siteUrl()}/${locale}/contact` },
+    alternates: localizedAlternates('/contact', locale),
   }
 }
 

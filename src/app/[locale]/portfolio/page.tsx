@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { siteUrl } from '@/config/site'
+import { localizedAlternates } from '@/config/site'
 import { PageHeader } from '@/components/ui/PageHeader'
 import Portfolio from '@/components/sections/Portfolio'
 import FinalCTA from '@/components/sections/FinalCTA'
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
-    alternates: { canonical: `${siteUrl()}/${locale}/portfolio` },
+    alternates: localizedAlternates('/portfolio', locale),
   }
 }
 
@@ -28,8 +28,8 @@ export default async function PortfolioPage({ params }: Props) {
     <>
       <PageHeader
         eyebrow={t('eyebrow')}
-        title="Work & concept projects"
-        subtitle="A preview of the systems we build. Concept projects are clearly labelled and shown until real client case studies are published."
+        title={t('pageTitle')}
+        subtitle={t('pageSubtitle')}
       />
       <Portfolio showFilters />
       <FinalCTA />

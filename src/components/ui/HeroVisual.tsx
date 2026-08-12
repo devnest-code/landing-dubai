@@ -1,10 +1,12 @@
 import { Icon } from './Icon'
+import { useTranslations } from 'next-intl'
 
 /**
  * Abstract "business dashboard" visual — pure CSS/SVG, no stock imagery.
  * Communicates leads / analytics / automation at a glance.
  */
 export function HeroVisual() {
+  const t = useTranslations('hero.visual')
   const bars = [42, 68, 55, 88, 74, 96]
   return (
     <div
@@ -20,14 +22,14 @@ export function HeroVisual() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <div style={{ fontSize: 12, color: 'var(--wf)', letterSpacing: 1, textTransform: 'uppercase' }}>
-              Leads this month
+              {t('leads')}
             </div>
             <div className="font-display" style={{ fontSize: 32, fontWeight: 700, marginTop: 4 }}>
               1,284
             </div>
           </div>
           <span className="chip" style={{ color: 'var(--cyan)' }}>
-            <span className="badge-live" /> Live
+            <span className="badge-live" /> {t('live')}
           </span>
         </div>
 
@@ -50,8 +52,8 @@ export function HeroVisual() {
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           {[
-            { icon: 'target', label: 'Conversion', value: '+38%' },
-            { icon: 'calendar', label: 'Bookings', value: '312' },
+            { icon: 'target', label: t('conversion'), value: '+38%' },
+            { icon: 'calendar', label: t('bookings'), value: '312' },
           ].map((s) => (
             <div key={s.label} style={{ border: '1px solid var(--bd)', borderRadius: 12, padding: 12 }}>
               <span style={{ color: 'var(--cyan)', display: 'inline-flex' }}>
@@ -96,8 +98,8 @@ export function HeroVisual() {
           <Icon name="whatsapp" size={18} />
         </span>
         <div>
-          <div style={{ fontSize: 13, fontWeight: 600 }}>New WhatsApp lead</div>
-          <div style={{ fontSize: 12, color: 'var(--wf)' }}>Auto-captured · 2s ago</div>
+          <div style={{ fontSize: 13, fontWeight: 600 }}>{t('newLead')}</div>
+          <div style={{ fontSize: 12, color: 'var(--wf)' }}>{t('captured')}</div>
         </div>
       </div>
 
@@ -107,7 +109,7 @@ export function HeroVisual() {
         style={{
           position: 'absolute',
           left: 0,
-          top: '3%',
+          top: '2%',
           zIndex: 3,
           borderRadius: 12,
           padding: '10px 12px',
@@ -119,7 +121,7 @@ export function HeroVisual() {
         <span style={{ color: 'var(--violet)', display: 'inline-flex' }}>
           <Icon name="sparkles" size={16} />
         </span>
-        <span style={{ fontSize: 12.5 }}>Automation active</span>
+        <span style={{ fontSize: 12.5 }}>{t('automation')}</span>
       </div>
 
       {/* Glow */}

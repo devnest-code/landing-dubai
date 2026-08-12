@@ -1,13 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
-import { faqs } from '@/config/content'
+import { useLocale, useTranslations } from 'next-intl'
+import { getLocalizedContent } from '@/config/localized-content'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Icon } from '@/components/ui/Icon'
 
 export default function FAQ({ withHeading = true }: { withHeading?: boolean }) {
   const t = useTranslations('faq')
+  const { faqs } = getLocalizedContent(useLocale())
   const [open, setOpen] = useState<number | null>(0)
 
   return (

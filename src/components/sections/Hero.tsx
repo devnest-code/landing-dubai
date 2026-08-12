@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl'
-import { bookingHref, site } from '@/config/site'
+import { bookingHref } from '@/config/site'
 import { CTAButton } from '@/components/ui/CTAButton'
 import { HeroVisual } from '@/components/ui/HeroVisual'
 import { Icon } from '@/components/ui/Icon'
@@ -27,8 +27,9 @@ export default function Hero() {
               maxWidth: 620,
             }}
           >
-            Digital systems built for{' '}
-            <span className="text-gradient-animate">ambitious businesses</span> in Dubai.
+            {t('titleStart')}{' '}
+            <span className="text-gradient-animate">{t('titleHighlight')}</span>{' '}
+            {t('titleEnd')}
           </h1>
 
           <p style={{ color: 'var(--wm)', fontSize: 'clamp(16px, 1.8vw, 19px)', marginTop: 22, maxWidth: 540 }}>
@@ -37,10 +38,10 @@ export default function Hero() {
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 32 }}>
             <CTAButton href={bookingHref()} event="hero-primary" eventKind="booking_click" withArrow>
-              {site.cta.primary}
+              {t('primaryCta')}
             </CTAButton>
             <CTAButton href="/services" variant="ghost" event="hero-secondary">
-              View Our Solutions
+              {t('secondaryCta')}
             </CTAButton>
           </div>
 

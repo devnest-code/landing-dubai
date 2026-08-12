@@ -38,7 +38,7 @@ export const site = {
   },
 
   contact: {
-    email: 'hello@example.com',
+    email: 'devnest.code@gmail.com',
     phoneDisplay: '+971 00 000 0000',
     businessHours: 'Sun–Thu, 9:00–18:00 (GST)',
   },
@@ -60,10 +60,9 @@ export const site = {
   },
 
   social: {
-    instagram: 'https://www.instagram.com/devnestcode/',
-    linkedin: 'https://www.tiktok.com/@devnest04',
-    x: '',
     facebook: 'https://www.facebook.com/devnestcode/',
+    github: 'https://github.com/devnest-code',
+    instagram: 'https://www.instagram.com/devnestcode/',
   },
 
   analytics: {
@@ -83,6 +82,20 @@ export const site = {
 /** Absolute site URL, safe on server & client. */
 export function siteUrl(): string {
   return process.env.NEXT_PUBLIC_SITE_URL || `https://${site.brand.domain}`
+}
+
+/** Canonical and hreflang links for a locale-aware page. */
+export function localizedAlternates(path: string, locale: string) {
+  const base = siteUrl()
+  const suffix = path ? `/${path.replace(/^\//, '')}` : ''
+  return {
+    canonical: `${base}/${locale}${suffix}`,
+    languages: {
+      en: `${base}/en${suffix}`,
+      ar: `${base}/ar${suffix}`,
+      'x-default': `${base}/en${suffix}`,
+    },
+  }
 }
 
 /** Build a wa.me link with an optional campaign/source tag. */

@@ -66,6 +66,24 @@ body {
   overflow-x: hidden;
 }
 
+[dir='rtl'] {
+  font-family: var(--font-sans), Tahoma, Arial, sans-serif;
+}
+
+[dir='rtl'] .eyebrow {
+  letter-spacing: 0;
+}
+
+[dir='rtl'] .eyebrow::before {
+  background: linear-gradient(270deg, transparent, var(--cyan));
+}
+
+[dir='rtl'] input,
+[dir='rtl'] textarea,
+[dir='rtl'] select {
+  text-align: right;
+}
+
 /* Ambient background wash */
 body::before {
   content: '';

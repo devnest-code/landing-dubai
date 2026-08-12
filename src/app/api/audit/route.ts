@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
       email: data.email,
       whatsapp: data.whatsapp,
       website: data.website,
-      message: `Free website audit requested for: ${data.website}`,
+      message: `Solicitud de auditoría gratuita para el sitio web: ${data.website}`,
       source: data.source || 'website-audit',
       utm: data.utm,
       status: 'new',

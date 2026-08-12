@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { siteUrl } from '@/config/site'
-import { faqs } from '@/config/content'
+import { localizedAlternates } from '@/config/site'
+import { getLocalizedContent } from '@/config/localized-content'
 import { PageHeader } from '@/components/ui/PageHeader'
 import FAQ from '@/components/sections/FAQ'
 import FinalCTA from '@/components/sections/FinalCTA'
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
-    alternates: { canonical: `${siteUrl()}/${locale}/faq` },
+    alternates: localizedAlternates('/faq', locale),
   }
 }
 
@@ -24,6 +24,7 @@ export default async function FaqPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations({ locale, namespace: 'faq' })
+  const { faqs } = getLocalizedContent(locale)
 
   // FAQPage structured data for rich results.
   const jsonLd = {

@@ -1,18 +1,20 @@
 'use client'
 
 import { Link } from '@/i18n/navigation'
-import { bookingHref, isBookingExternal, site, whatsappLink } from '@/config/site'
+import { useTranslations } from 'next-intl'
+import { bookingHref, isBookingExternal, whatsappLink } from '@/config/site'
 import { track } from '@/lib/analytics'
 import { Icon, WhatsAppGlyph } from '@/components/ui/Icon'
 
 /** Sticky bottom bar on mobile: WhatsApp | Book a Call. */
 export function MobileStickyBar() {
+  const t = useTranslations('common')
   const wa = whatsappLink(undefined, 'mobile-bar')
   const booking = bookingHref()
-  const bookingLabel = site.cta.primary.replace('Book a Free ', 'Book a ')
+  const bookingLabel = t('bookCall')
 
   return (
-    <div className="mobile-bar glass" role="navigation" aria-label="Quick actions">
+    <div className="mobile-bar glass" role="navigation" aria-label={t('quickActions')}>
       {wa && (
         <a
           href={wa}
@@ -22,7 +24,7 @@ export function MobileStickyBar() {
           style={{ flex: 1, padding: '13px 12px' }}
           onClick={() => track('whatsapp_click', { label: 'mobile-bar' })}
         >
-          <WhatsAppGlyph size={18} /> WhatsApp
+          <WhatsAppGlyph size={18} /> {t('whatsapp')}
         </a>
       )}
       {isBookingExternal() ? (

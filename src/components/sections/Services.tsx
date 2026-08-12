@@ -1,5 +1,5 @@
-import { useTranslations } from 'next-intl'
-import { services } from '@/config/content'
+import { useLocale, useTranslations } from 'next-intl'
+import { getLocalizedContent } from '@/config/localized-content'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { ServiceCard } from '@/components/cards/ServiceCard'
 import { CTAButton } from '@/components/ui/CTAButton'
@@ -7,6 +7,7 @@ import { Reveal } from '@/components/ui/Reveal'
 
 export default function Services({ limit }: { limit?: number }) {
   const t = useTranslations('services')
+  const { services } = getLocalizedContent(useLocale())
   const list = limit ? services.slice(0, limit) : services
 
   return (

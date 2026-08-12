@@ -1,12 +1,13 @@
-import { useTranslations } from 'next-intl'
-import { processSteps } from '@/config/content'
-import { bookingHref, site } from '@/config/site'
+import { useLocale, useTranslations } from 'next-intl'
+import { getLocalizedContent } from '@/config/localized-content'
+import { bookingHref } from '@/config/site'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { CTAButton } from '@/components/ui/CTAButton'
 import { Reveal } from '@/components/ui/Reveal'
 
 export default function Process() {
   const t = useTranslations('process')
+  const { processSteps } = getLocalizedContent(useLocale())
 
   return (
     <section className="section" id="process">
@@ -32,7 +33,7 @@ export default function Process() {
 
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 44 }}>
           <CTAButton href={bookingHref()} eventKind="booking_click" event="process-cta" withArrow>
-            {site.cta.start}
+            {t('cta')}
           </CTAButton>
         </div>
       </div>

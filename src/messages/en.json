@@ -49,11 +49,25 @@
   "hero": {
     "badge": "Serving businesses across Dubai & UAE",
     "title": "Digital systems built for ambitious businesses in Dubai.",
+    "titleStart": "Digital systems built for",
+    "titleHighlight": "ambitious businesses",
+    "titleEnd": "in Dubai.",
     "subtitle": "Websites, business systems and automation designed to help UAE businesses attract more customers, operate smarter and grow faster.",
     "value": "Dubai-level digital solutions without Dubai agency overhead.",
     "stat1": "Conversion-focused",
     "stat2": "Custom-built",
-    "stat3": "Dedicated support"
+    "stat3": "Dedicated support",
+    "primaryCta": "Book a Free Consultation",
+    "secondaryCta": "View Our Solutions",
+    "visual": {
+      "leads": "Leads this month",
+      "live": "Live",
+      "conversion": "Conversion",
+      "bookings": "Bookings",
+      "newLead": "New WhatsApp lead",
+      "captured": "Auto-captured · 2s ago",
+      "automation": "Automation active"
+    }
   },
   "trust": {
     "title": "Built for businesses that want more than just a website.",
@@ -63,14 +77,18 @@
     "eyebrow": "What we build",
     "title": "Solutions that do more than look good",
     "subtitle": "Every service is engineered around a business outcome — more leads, more bookings, less manual work.",
-    "cta": "Explore all services"
+    "cta": "Explore all services",
+    "pageTitle": "Everything you need to grow online",
+    "pageSubtitle": "From high-converting websites to custom software and automation, one team built around your business outcomes."
   },
   "industries": {
     "eyebrow": "Industry solutions",
     "title": "Systems shaped to your industry",
     "subtitle": "Find the solution that fits how your business actually works.",
     "cta": "See all industries",
-    "solutionsLabel": "What's included"
+    "solutionsLabel": "What's included",
+    "pageTitle": "Built around your industry",
+    "pageSubtitle": "Every business is different. We tailor the same premium engineering to the way your industry actually works."
   },
   "process": {
     "eyebrow": "How we work",
@@ -88,7 +106,10 @@
     "recurringSubtitle": "Keep your product fast, secure and improving every month.",
     "perMonth": "/month",
     "note": "Prices are starting points and are configured per project. Final scope is agreed during your free consultation.",
-    "popular": "Most popular"
+    "popular": "Most popular",
+    "cta": "Start Your Project",
+    "pageTitle": "Simple, transparent pricing in AED",
+    "pageSubtitle": "Clear starting prices and monthly plans. Your final scope is agreed together during a free consultation, with no pressure or hidden fees."
   },
   "roi": {
     "eyebrow": "ROI calculator",
@@ -110,6 +131,8 @@
     "title": "The kind of systems we build",
     "subtitle": "Concept projects that show our approach. Real client case studies will be published as they go live.",
     "conceptNote": "Concept Project — illustrative work, not a real client.",
+    "pageTitle": "Work & concept projects",
+    "pageSubtitle": "A preview of the systems we build. Concept projects are clearly labelled and shown until real client case studies are published.",
     "filters": {
       "all": "All",
       "real-estate": "Real Estate",
@@ -156,7 +179,8 @@
       "partnership": "Long-term partnerships"
     },
     "disclaimerTitle": "Honest by default",
-    "disclaimer": "We don't fabricate clients, testimonials or results. Demo work is clearly labelled as a concept project until real client work is published."
+    "disclaimer": "We don't fabricate clients, testimonials or results. Demo work is clearly labelled as a concept project until real client work is published.",
+    "based": "Remote technology team based in Ecuador, serving UAE businesses."
   },
   "contact": {
     "eyebrow": "Get in touch",
@@ -180,12 +204,24 @@
       "success": "Thank you. We've received your request and will be in touch soon.",
       "error": "Something went wrong. Please try again or reach us on WhatsApp.",
       "optional": "optional"
+      ,"namePlaceholder": "Jane Doe",
+      "companyPlaceholder": "Acme LLC",
+      "messagePlaceholder": "Tell us what you're looking to build or improve…",
+      "other": "Other",
+      "budgets": {
+        "under5k": "Under AED 5,000",
+        "5to15k": "AED 5,000 – 15,000",
+        "15to50k": "AED 15,000 – 50,000",
+        "over50k": "AED 50,000+",
+        "unsure": "Not sure yet"
+      }
     },
     "channels": {
       "whatsapp": "Chat on WhatsApp",
       "email": "Email us",
       "book": "Book a consultation",
-      "hours": "Business hours"
+      "hours": "Business hours",
+      "hoursValue": "Sun–Thu, 9:00–18:00 (GST)"
     }
   },
   "footer": {
@@ -195,6 +231,12 @@
       "company": "Company",
       "solutions": "Solutions",
       "legal": "Legal"
+    },
+    "companyLinks": {
+      "about": "About",
+      "work": "Work",
+      "faq": "FAQ",
+      "contact": "Contact"
     },
     "legal": {
       "privacy": "Privacy Policy",
@@ -207,6 +249,12 @@
   "common": {
     "backHome": "Back to home",
     "learnMore": "Learn more",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "bookConsultation": "Book a Free Consultation",
+    "requestQuote": "Request a Quote",
+    "menu": "Menu",
+    "quickActions": "Quick actions",
+    "bookCall": "Book a Call",
+    "whatsapp": "WhatsApp"
   }
 }

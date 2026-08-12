@@ -1,14 +1,31 @@
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
+import Script from 'next/script'
+import { Sora, Inter } from 'next/font/google'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { routing } from '@/i18n/routing'
+import { routing, dir } from '@/i18n/routing'
 import { site, siteUrl } from '@/config/site'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { WhatsAppFloat } from '@/components/ui/WhatsAppFloat'
 import { MobileStickyBar } from '@/components/layout/MobileStickyBar'
+import '../globals.css'
+
+const sora = Sora({
+  subsets: ['latin'],
+  weight: ['500', '600', '700', '800'],
+  variable: '--font-sora',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-inter',
+  display: 'swap',
+})
 
 interface Props {
   children: ReactNode
@@ -25,6 +42,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const base = siteUrl()
 
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || `https://${site.brand.domain}`),
+    verification: {
+      google: 'hyLciLL6OpBKGtgGcSXS-211NtuvyfT2E27Vg5p-qH0',
+    },
     title: {
       default: t('title'),
       template: `%s`,
@@ -43,24 +64,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     authors: [{ name: site.brand.name }],
     alternates: {
       canonical: `${base}/${locale}`,
-      languages: { en: `${base}/en`, 'x-default': `${base}/en` },
+      languages: { en: `${base}/en`, ar: `${base}/ar`, 'x-default': `${base}/en` },
     },
     openGraph: {
       title: t('title'),
       description: t('description'),
       url: `${base}/${locale}`,
       siteName: site.brand.name,
-      locale: 'en_US',
+      locale: locale === 'ar' ? 'ar_AE' : 'en_US',
       type: 'website',
       // Generated at src/app/opengraph-image.tsx. Referenced explicitly because a
       // custom openGraph object here otherwise suppresses the file-based image.
-      images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: site.brand.name }],
+      images: [{ url: `${base}/opengraph-image`, width: 1200, height: 630, alt: site.brand.name }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
-      images: ['/opengraph-image'],
+      images: [`${base}/opengraph-image`],
     },
     robots: { index: true, follow: true },
   }
@@ -77,6 +98,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   const messages = await getMessages({ locale })
   const base = siteUrl()
+  const gaId = site.analytics.gaId
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -95,21 +117,41 @@ export default async function LocaleLayout({ children, params }: Props) {
       '@type': 'ContactPoint',
       contactType: 'sales',
       email: site.contact.email,
-      availableLanguage: ['English'],
+      availableLanguage: ['English', 'Arabic'],
     },
   }
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <Navbar />
-      <main id="main">{children}</main>
-      <Footer />
-      <WhatsAppFloat />
-      <MobileStickyBar />
-    </NextIntlClientProvider>
+    <html
+      lang={locale}
+      dir={dir(locale)}
+      suppressHydrationWarning
+      className={`${sora.variable} ${inter.variable}`}
+    >
+      <body suppressHydrationWarning>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
+          <Navbar />
+          <main id="main">{children}</main>
+          <Footer />
+          <WhatsAppFloat />
+          <MobileStickyBar />
+        </NextIntlClientProvider>
+        {gaId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`}
+            </Script>
+          </>
+        ) : null}
+      </body>
+    </html>
   )
 }

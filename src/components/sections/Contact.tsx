@@ -50,7 +50,7 @@ export default function Contact() {
                 <ChannelIcon name="calendar" />
                 <span>
                   <span style={{ display: 'block', fontWeight: 600 }}>{t('channels.book')}</span>
-                  <span style={{ color: 'var(--wf)', fontSize: 13 }}>{site.cta.primary}</span>
+                  <span style={{ color: 'var(--wf)', fontSize: 13 }}>{t('form.submit')}</span>
                 </span>
               </a>
             ) : (
@@ -58,7 +58,7 @@ export default function Contact() {
                 <ChannelIcon name="calendar" />
                 <span>
                   <span style={{ display: 'block', fontWeight: 600 }}>{t('channels.book')}</span>
-                  <span style={{ color: 'var(--wf)', fontSize: 13 }}>{site.cta.primary}</span>
+                  <span style={{ color: 'var(--wf)', fontSize: 13 }}>{t('form.submit')}</span>
                 </span>
               </Link>
             )}
@@ -67,7 +67,7 @@ export default function Contact() {
               <ChannelIcon name="clock" />
               <span>
                 <span style={{ display: 'block', fontWeight: 600 }}>{t('channels.hours')}</span>
-                <span style={{ color: 'var(--wf)', fontSize: 13 }}>{site.contact.businessHours}</span>
+                <span style={{ color: 'var(--wf)', fontSize: 13 }}>{t('channels.hoursValue')}</span>
               </span>
             </div>
           </aside>

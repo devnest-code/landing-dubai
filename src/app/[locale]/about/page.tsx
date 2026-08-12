@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { siteUrl, site } from '@/config/site'
+import { localizedAlternates } from '@/config/site'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Reveal } from '@/components/ui/Reveal'
 import { Icon } from '@/components/ui/Icon'
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
-    alternates: { canonical: `${siteUrl()}/${locale}/about` },
+    alternates: localizedAlternates('/about', locale),
   }
 }
 
@@ -61,7 +61,7 @@ export default async function AboutPage({ params }: Props) {
             <div className="glass" style={{ borderRadius: 'var(--r)', padding: 24, marginTop: 32, borderColor: 'rgba(232,193,122,0.28)' }}>
               <h3 className="price-gold" style={{ fontSize: 18 }}>{t('disclaimerTitle')}</h3>
               <p style={{ color: 'var(--wm)', marginTop: 10, fontSize: 15 }}>{t('disclaimer')}</p>
-              <p style={{ color: 'var(--wf)', marginTop: 14, fontSize: 13 }}>{site.market.baseLabel}</p>
+              <p style={{ color: 'var(--wf)', marginTop: 14, fontSize: 13 }}>{t('based')}</p>
             </div>
           </Reveal>
         </div>

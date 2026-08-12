@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useTranslations } from 'next-intl'
-import { Link } from '@/i18n/navigation'
+import { useLocale, useTranslations } from 'next-intl'
+import { Link, usePathname, useRouter } from '@/i18n/navigation'
 import { bookingHref, isBookingExternal, site } from '@/config/site'
 import { track } from '@/lib/analytics'
 import { Logo } from '@/components/ui/Logo'
@@ -54,6 +54,10 @@ const links = [
 
 export default function Navbar() {
   const t = useTranslations('nav')
+  const tc = useTranslations('common')
+  const locale = useLocale()
+  const pathname = usePathname()
+  const router = useRouter()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -108,18 +112,28 @@ export default function Navbar() {
         </ul>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <button
+            type="button"
+            className="chip language-switcher"
+            aria-label={locale === 'ar' ? 'Switch to English' : 'التبديل إلى العربية'}
+            onClick={() => router.replace(pathname, { locale: locale === 'ar' ? 'en' : 'ar' })}
+            style={{ cursor: 'pointer', color: 'var(--w)', fontWeight: 600 }}
+          >
+            {locale === 'ar' ? 'EN' : 'عربي'}
+          </button>
+
           <BookingLink
             label="nav-primary"
             className="btn btn-primary nav-cta"
             style={{ display: 'none', padding: '11px 20px', fontSize: 14 }}
           >
-            {site.cta.primary}
+            {tc('bookConsultation')}
           </BookingLink>
 
           {/* Mobile toggle */}
           <button
             className="nav-toggle"
-            aria-label="Menu"
+            aria-label={tc('menu')}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
             style={{
@@ -174,7 +188,7 @@ export default function Navbar() {
             style={{ marginTop: 18 }}
             onClick={() => setOpen(false)}
           >
-            {site.cta.primary}
+            {tc('bookConsultation')}
           </BookingLink>
         </div>
       )}

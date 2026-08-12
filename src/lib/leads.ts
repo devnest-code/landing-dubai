@@ -11,7 +11,7 @@ import type { Lead } from '@/types'
  */
 
 const FROM = process.env.LEAD_FROM_EMAIL || `${site.brand.name} <onboarding@resend.dev>`
-const TO = process.env.LEAD_TO_EMAIL || site.contact.email
+const TO = process.env.LEAD_TO_EMAIL || 'devnest.code@gmail.com'
 
 function esc(v: unknown): string {
   return String(v ?? '—').replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]!))
@@ -33,17 +33,17 @@ export async function notifyLead(lead: Lead): Promise<boolean> {
 
   const resend = new Resend(process.env.RESEND_API_KEY)
   const rows = [
-    ['Name', lead.name],
-    ['Company', lead.company],
-    ['Email', lead.email],
+    ['Nombre', lead.name],
+    ['Empresa', lead.company],
+    ['Correo electrónico', lead.email],
     ['WhatsApp', lead.whatsapp],
-    ['Industry', lead.industry],
-    ['Current website', lead.website],
-    ['Service', lead.service],
-    ['Budget', lead.budget],
-    ['Source', lead.source],
+    ['Sector', lead.industry],
+    ['Sitio web actual', lead.website],
+    ['Servicio solicitado', lead.service],
+    ['Presupuesto', lead.budget],
+    ['Origen', lead.source],
     ['UTM', lead.utm ? JSON.stringify(lead.utm) : '—'],
-    ['Message', lead.message],
+    ['Mensaje', lead.message],
   ]
     .map(([k, v]) => `<tr><td style="padding:4px 10px"><strong>${esc(k)}</strong></td><td style="padding:4px 10px">${esc(v)}</td></tr>`)
     .join('')
@@ -52,19 +52,19 @@ export async function notifyLead(lead: Lead): Promise<boolean> {
     from: FROM,
     to: [TO],
     replyTo: lead.email,
-    subject: `New Dubai Digital Project Lead — ${lead.company || lead.name}`,
-    html: `<h2>New lead from ${esc(site.brand.name)}</h2><table cellpadding="0" cellspacing="0">${rows}</table>`,
+    subject: `Nueva solicitud de proyecto en Dubái — ${lead.company || lead.name}`,
+    html: `<h2>Nueva solicitud recibida desde ${esc(site.brand.name)}</h2><table cellpadding="0" cellspacing="0">${rows}</table>`,
   })
 
   await resend.emails.send({
     from: FROM,
     to: [lead.email],
-    subject: 'We received your project request',
+    subject: 'Hemos recibido tu solicitud de proyecto',
     html: `
-      <p>Hi ${esc(lead.name)},</p>
-      <p>Thanks for reaching out to ${esc(site.brand.name)}. We've received your request and a specialist will get back to you shortly.</p>
-      <p>In the meantime, feel free to reply to this email with any extra detail about your project.</p>
-      <p>— The ${esc(site.brand.name)} Team</p>
+      <p>Hola ${esc(lead.name)},</p>
+      <p>Gracias por comunicarte con ${esc(site.brand.name)}. Hemos recibido tu solicitud y un especialista se pondrá en contacto contigo pronto.</p>
+      <p>Mientras tanto, puedes responder a este correo con cualquier información adicional sobre tu proyecto.</p>
+      <p>— El equipo de ${esc(site.brand.name)}</p>
     `,
   })
 

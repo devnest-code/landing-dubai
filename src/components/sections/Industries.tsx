@@ -1,11 +1,12 @@
-import { useTranslations } from 'next-intl'
-import { industries } from '@/config/content'
+import { useLocale, useTranslations } from 'next-intl'
+import { getLocalizedContent } from '@/config/localized-content'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { IndustryCard } from '@/components/cards/IndustryCard'
 import { Reveal } from '@/components/ui/Reveal'
 
 export default function Industries({ limit }: { limit?: number }) {
   const t = useTranslations('industries')
+  const { industries } = getLocalizedContent(useLocale())
   const list = limit ? industries.slice(0, limit) : industries
 
   return (
